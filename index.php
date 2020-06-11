@@ -1,6 +1,6 @@
 <?php
 
-include 'config/database.php';
+include '../config/database.php';
 
 if ($_GET['debug'] == 'true') {
     $where = "enabled = 0";
@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 <head>
 <title>Andreas Larsson Blog</title>
 
-<?php include 'config/analytics.php'; ?>
+<?php include '../config/analytics.php'; ?>
 
 <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
