@@ -1,0 +1,31 @@
+body {
+  font-family: 'Caveat';
+  font-size: 22px;
+}
+
+a {
+  color: black;
+}
+
+.post-body {
+  font-size: 18px;
+}
+
+.post-table {
+  text-align: center;
+  margin: auto auto;
+  margin-bottom: 40px;
+}
+
+.coffee-div {
+  border: 1px solid black;
+  width: 20px;
+  text-align: center;
+  border-radius: 5px;
+  float: left;
+  margin-right: 3px;
+}
+
+.zero-cups {
+  background-color: lightgray;
+}
