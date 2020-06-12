@@ -33,7 +33,7 @@ $result = $conn->query($sql);
     <table class="post-table" data-id="<?php echo $row['id'] ?>" width="600">
       <tr>
         <td>
-          <h1 style="margin:0px"><a href="index.php?post=<?php echo $row['link']?>"><?php echo $row['title'] ?></a></h1>
+          <h1 style="margin:0px"><a href="<?php echo $row['link']?>"><?php echo $row['title'] ?></a></h1>
         </td>
       </tr>
       <tr>
