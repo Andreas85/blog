@@ -29,3 +29,9 @@ a {
 .zero-cups {
   background-color: lightgray;
 }
+
+.code {
+  font-family: monospace;
+  text-align: left;
+  font-size: 16px;
+}
