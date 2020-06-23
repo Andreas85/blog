@@ -2,16 +2,47 @@
 
 include '../config/database.php';
 
-if ($_GET['debug'] == 'true') {
+if (isset($_GET['debug']) && $_GET['debug'] == 'true') {
     $where = "enabled = 0";
 } else {
     $where = "enabled = 1";
 }
 
-if (isset($_GET['post'])) {
-    $sql = "SELECT * FROM posts WHERE link = '" . $conn->real_escape_string($_GET['post']) . "' AND " . $where;
+if (isset($_GET['lang']) && $_GET['lang'] == 'en') {
+    $query_title = 'title_english';
+    $query_body = 'body_english';
 } else {
-    $sql = "SELECT * FROM posts WHERE " . $where . " ORDER BY id DESC";
+    $query_title = 'title';
+    $query_body = 'body';
+}
+
+if (isset($_GET['post'])) {
+    $sql = "
+        SELECT
+            id,
+            link,
+            enabled,
+            datetime,
+            " . $query_title . " as title,
+            " . $query_body . " as body
+        FROM
+            posts
+        WHERE
+            link = '" . $conn->real_escape_string($_GET['post']) . "'
+            AND " . $where;
+} else {
+    $sql = "
+        SELECT
+            id,
+            link,
+            enabled,
+            datetime,
+            " . $query_title . " as title,
+            " . $query_body . " as body
+        FROM
+            posts
+        WHERE
+            " . $where . " ORDER BY id DESC";
 }
 
 $result = $conn->query($sql);
@@ -46,5 +77,5 @@ $result = $conn->query($sql);
       </tr>
     </table>
 <?php
-  } 
+  }
 ?>
